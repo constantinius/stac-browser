@@ -94,7 +94,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['displayOverviewsForChildren']),
+    ...mapState(['displayPreviewsForChildren', 'displayOverviewsForChildren']),
     container() {
       if (this.isFullScreen) {
         return '#' + this.mapId;
@@ -106,7 +106,7 @@ export default {
     childrenOptions() {
       const showItems = this.children && this.children.isItemCollection;
       return {
-        displayPreview: showItems,
+        displayPreview: showItems && this.displayPreviewsForChildren,
         displayOverview: showItems && this.displayOverviewsForChildren
       };
     },
